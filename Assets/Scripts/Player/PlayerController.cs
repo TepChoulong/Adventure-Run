@@ -3,67 +3,133 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 10f;
-    public Transform groundCheck;
-    public float groundRadius = 0.2f;
-    public LayerMask whatIsGround;
+     /*
+    Note: 
+        1. If you want to make your GameObject stop shaking of jitter you should change the interpolate mode in the rigibody2D component to "interpolate"
+        (in the inspector of that GameObject).
+    */
+    
+    //Movement System
+    public float speed;
+    Rigidbody2D rb2d;
+    float h_Move;
+    float v_Move;
+    Animator animator;
+    //Jump System
+    public float jumpspeed;
+    // Grounded System
+    public Transform GroundCheck;
+    public LayerMask Ground;
+    bool IsGrounded;
+    //Flip System
+    private bool facingRight = true;
 
-    private Rigidbody2D rb;
-    private Animator animator;
-    private bool isGrounded;
 
-    float horizontalInput;
-
+    private void Awake()
+    {
+        
+    }
+    // Start is called before the first frame update
     void Start()
     {
+        rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
     }
 
+    // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
+        JumpAnimationEvent();
         
+        h_Move = Input.GetAxis("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(h_Move));
 
-        // Methods
-        GroundCheck();
-        Jump();
-    }
+        v_Move = Input.GetAxis("Vertical");
 
-    private void FixedUpdate() 
-    {
-
-
-        // Methods
-        Move();
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
-    }
-
-    void Move()
-    { 
-        rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
-    }
-    void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            if (IsGrounded)
+            {
+                Jump();
+            }
+        }
+        
+    }
+
+    void FixedUpdate()
+    {
+        Move();
+        IsGroundCheck();
+
+        if (facingRight == false && h_Move > 0)
+        {
+            FlipPlayer();
+        }
+        else if (facingRight == true && h_Move < 0)
+        {
+            FlipPlayer();
         }
     }
-    void GroundCheck()
-    {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-    }
-    void Facing()
-    {
 
+    //Method
+
+    void Move()
+    {
+        rb2d.velocity = new Vector2(h_Move * speed * Time.fixedDeltaTime, rb2d.velocity.y);
+    }
+
+    void Jump()
+    {
+        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpspeed * Time.fixedDeltaTime);
+    }
+
+    void FlipPlayer()
+    {
+        facingRight = !facingRight;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
+    }
+
+    void IsGroundCheck()
+    {
+        IsGrounded = Physics2D.OverlapCircle(GroundCheck.position, 0.2f, Ground);
+    }
+    
+    void JumpAnimationEvent()
+    {
+        if (rb2d.velocity.y > 0.01)
+        {
+            animator.SetBool("IsJump", true);
+            animator.SetBool("IsFall", false);
+        }
+        
+        if (rb2d.velocity.y < 0.01)
+        {
+            animator.SetBool("IsJump", false);
+            animator.SetBool("IsFall", true);
+        }
+        
+        if (IsGrounded)
+        {
+            animator.SetBool("IsJump", false);
+            animator.SetBool("IsFall", false);
+        }
+        
+        /*
+        Note : It is use only one animation that contain the jump and fall animation inside it. This script require only one animation to make it run.
+        
+        if (rb2.velocity.y > 0.01)
+        {
+            animator.SetBool("name of the jump animation parameter", true);
+        }
+        
+        if (IsGround)
+        {
+            animator.SetBool("name of the jump animation parameter", false);
+        }
+        */
     }
 }

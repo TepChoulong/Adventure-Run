@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hurt
+  m_Name: Fall
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1020297926, guid: f5d71fdff3bf5f742aa6a58babb6a9f0, type: 3}
-    - time: 0.16666667
-      value: {fileID: 1609042869, guid: f5d71fdff3bf5f742aa6a58babb6a9f0, type: 3}
-    - time: 0.33333334
-      value: {fileID: 1144295289, guid: f5d71fdff3bf5f742aa6a58babb6a9f0, type: 3}
+      value: {fileID: 997780953, guid: a5156229c22c4fa4b87706e8001a0271, type: 3}
+    - time: 0.25
+      value: {fileID: 158624789, guid: a5156229c22c4fa4b87706e8001a0271, type: 3}
     - time: 0.5
-      value: {fileID: 1982347285, guid: f5d71fdff3bf5f742aa6a58babb6a9f0, type: 3}
+      value: {fileID: 997780953, guid: a5156229c22c4fa4b87706e8001a0271, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,10 +44,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1020297926, guid: f5d71fdff3bf5f742aa6a58babb6a9f0, type: 3}
-    - {fileID: 1609042869, guid: f5d71fdff3bf5f742aa6a58babb6a9f0, type: 3}
-    - {fileID: 1144295289, guid: f5d71fdff3bf5f742aa6a58babb6a9f0, type: 3}
-    - {fileID: 1982347285, guid: f5d71fdff3bf5f742aa6a58babb6a9f0, type: 3}
+    - {fileID: 997780953, guid: a5156229c22c4fa4b87706e8001a0271, type: 3}
+    - {fileID: 158624789, guid: a5156229c22c4fa4b87706e8001a0271, type: 3}
+    - {fileID: 997780953, guid: a5156229c22c4fa4b87706e8001a0271, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
