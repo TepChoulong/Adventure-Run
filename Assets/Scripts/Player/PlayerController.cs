@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
         1. If you want to make your GameObject stop shaking of jitter you should change the interpolate mode in the rigibody2D component to "interpolate"
         (in the inspector of that GameObject).
     */
+
+    public static PlayerController instance;
     
     //Movement System
     public float speed;
@@ -23,13 +25,14 @@ public class PlayerController : MonoBehaviour
     public Transform GroundCheck;
     public LayerMask Ground;
     bool IsGrounded;
+    public float GroundRange = 0.3f;
     //Flip System
-    private bool facingRight = true;
+    public bool facingRight = true;
 
 
     private void Awake()
     {
-        
+        instance = this;
     }
     // Start is called before the first frame update
     void Start()
@@ -95,7 +98,7 @@ public class PlayerController : MonoBehaviour
 
     void IsGroundCheck()
     {
-        IsGrounded = Physics2D.OverlapCircle(GroundCheck.position, 0.2f, Ground);
+        IsGrounded = Physics2D.OverlapCircle(GroundCheck.position, GroundRange, Ground);
     }
     
     void JumpAnimationEvent()
@@ -131,5 +134,9 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("name of the jump animation parameter", false);
         }
         */
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.DrawWireSphere(GroundCheck.position, GroundRange);
     }
 }

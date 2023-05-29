@@ -30,6 +30,7 @@ public class ComboManager : MonoBehaviour
         {
             inputReceived = true;
             canReceiveInput = false;
+            AttackCombat.instance.AttackEnemy();
         }
         else
         {
