@@ -4,38 +4,48 @@ using UnityEngine;
 
 public class ComboManager : MonoBehaviour
 {
-    public int comboCount;
-    public float comboTimer;
-    public float maxComboTime = 2f;
-    private Animator animator;
+    public static ComboManager instance;
 
-    void Start()
+    [SerializeField] bool canReceiveInput;
+    public bool inputReceived;
+
+    private void Awake() 
     {
-        animator = GetComponent<Animator>();
+        instance = this;    
     }
 
-    void Update()
+    void Start() 
     {
-        if (comboTimer > 0)
+
+    }
+
+    void Update() 
+    {
+        Attack();
+    }
+
+    public void Attack()
+    {
+        if (Input.GetButtonDown("Fire1"))
         {
-            comboTimer -= Time.deltaTime;
+            inputReceived = true;
+            canReceiveInput = false;
         }
         else
         {
-            ResetCombo();
+            return;
         }
     }
 
-    public void IncreaseCombo()
+    public void InputManager()
     {
-        comboCount++;
-        comboTimer = maxComboTime;
-        // Add logic to display combo text or effects
-    }
-
-    public void ResetCombo()
-    {
-        comboCount = 0;
-        // Add logic to reset combo text or effects
+        if (!canReceiveInput)
+        {
+            canReceiveInput = true;
+        }
+        else
+        {
+            canReceiveInput = false;
+        }
     }
 }

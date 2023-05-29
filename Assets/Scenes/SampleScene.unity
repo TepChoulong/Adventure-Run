@@ -342,7 +342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350498727}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.045, y: -0.852, z: 15.231446}
+  m_LocalPosition: {x: -0.192, y: -0.946, z: 15.231446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -363,7 +363,6 @@ GameObject:
   - component: {fileID: 1697975097}
   - component: {fileID: 1697975099}
   - component: {fileID: 1697975098}
-  - component: {fileID: 1697975101}
   - component: {fileID: 1697975100}
   m_Layer: 0
   m_Name: Player
@@ -413,12 +412,12 @@ SpriteRenderer:
   m_SortingLayerID: -80087621
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1375975695, guid: 78af1030c33081947ad77cf240a69b2f, type: 3}
+  m_Sprite: {fileID: -1995206410, guid: 56cfba77b61c9d54388280a534590349, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8125, y: 1.28125}
+  m_Size: {x: 1.625, y: 1.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -432,7 +431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697975090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.273, y: -1.493, z: 0}
+  m_LocalPosition: {x: -0.273, y: -1.415, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -513,8 +512,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.018987954, y: -0.020714164}
-  m_Size: {x: 0.57583666, y: 1.6669052}
+  m_Offset: {x: -0.18194503, y: -0.0006209612}
+  m_Size: {x: 0.56690633, y: 1.8678381}
   m_Direction: 0
 --- !u!114 &1697975100
 MonoBehaviour:
@@ -528,35 +527,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41aa20dbaa36eb247b7a12b61908f0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboCount: 0
-  comboTimer: 0
-  maxComboTime: 2
---- !u!114 &1697975101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697975090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82944680d974d8a42ac85ad3543e865d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  comboAttacks:
-  - damage: 6
-    max_damage: 14
-    stamina: 5
-    animation: {fileID: 7400000, guid: 9ab607fb55bd6e64c85355d7f472e431, type: 2}
-  - damage: 10
-    max_damage: 16
-    stamina: 8
-    animation: {fileID: 7400000, guid: 407e22bd3680c704ba5231d50806dd01, type: 2}
-  - damage: 6
-    max_damage: 12
-    stamina: 10
-    animation: {fileID: 7400000, guid: 3653479e054f11740b91e92e426505aa, type: 2}
-  - damage: 10
-    max_damage: 18
-    stamina: 15
-    animation: {fileID: 7400000, guid: 96c63479a6b46b14981b4895ed155596, type: 2}
+  canReceiveInput: 0
+  inputReceived: 0
