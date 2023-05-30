@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     //Movement System
     public float speed;
     Rigidbody2D rb2d;
-    float h_Move;
+    public float h_Move;
     float v_Move;
     Animator animator;
     //Jump System

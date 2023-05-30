@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class TransitionTwoBehavior : StateMachineBehaviour
 {
+    float TakeEnergy = 5f;
+    public static int TakeDamage;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-      // ComboManager.instance.inputReceived = true;
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       if (ComboManager.instance.inputReceived)
-       {
-            animator.SetTrigger("Attack3");
-            ComboManager.instance.InputManager();
-            ComboManager.instance.inputReceived = false;
-       }
+      TakeDamage = Random.Range(8, 12);
+
+      if (ComboManager.instance.inputReceived && PlayerPhysicalFitness.instance.Energy > TakeEnergy)
+      {
+        animator.SetTrigger("Attack3");
+        PlayerPhysicalFitness.instance.TakeEnergy(TakeEnergy);
+        ComboManager.instance.InputManager();
+        ComboManager.instance.inputReceived = false;
+      }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

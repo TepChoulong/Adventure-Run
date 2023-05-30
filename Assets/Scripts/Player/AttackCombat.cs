@@ -16,12 +16,13 @@ public class AttackCombat : MonoBehaviour
         instance = this;
     }
 
+    private void Update() {
+        // Check Enemy
+        Hit_Enemy = Physics2D.OverlapCircleAll(Attack_Point.position, Attack_Range, Enemy_Layer);
+    }
 
     public void AttackEnemy()
     {
-        // Check Enemy
-        Hit_Enemy = Physics2D.OverlapCircleAll(Attack_Point.position, Attack_Range, Enemy_Layer);
-
         // Damage Them
         foreach (Collider2D enemy in Hit_Enemy)
         {

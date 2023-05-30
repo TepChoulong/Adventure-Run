@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 14689172}
-  - component: {fileID: 14689173}
   m_Layer: 0
   m_Name: AttackPoint
   m_TagString: Untagged
@@ -155,22 +154,6 @@ Transform:
   m_Father: {fileID: 1697975094}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &14689173
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14689171}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.6, y: 1.6}
-  m_Direction: 0
 --- !u!1 &136219616
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,6 +972,7 @@ GameObject:
   - component: {fileID: 1697975098}
   - component: {fileID: 1697975100}
   - component: {fileID: 1697975101}
+  - component: {fileID: 1697975102}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1120,6 +1104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 380
+  h_Move: 0
   jumpspeed: 1000
   GroundCheck: {fileID: 1350498728}
   Ground:
@@ -1175,6 +1160,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   Knockback_Speed: 5
+--- !u!114 &1697975102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697975090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df0eacee15ff324eaf5d757da89aada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  Energy: 0
 --- !u!1 &1746961207
 GameObject:
   m_ObjectHideFlags: 0

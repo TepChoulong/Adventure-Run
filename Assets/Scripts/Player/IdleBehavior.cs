@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class IdleBehavior : StateMachineBehaviour
 {
+    float TakeEnergy = 2f;
+    public static int TakeDamage;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
@@ -13,9 +16,12 @@ public class IdleBehavior : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       if (ComboManager.instance.inputReceived)
+        TakeDamage = Random.Range(6, 10);
+
+       if (ComboManager.instance.inputReceived && PlayerPhysicalFitness.instance.Energy > TakeEnergy)
        {
             animator.SetTrigger("Attack1");
+            PlayerPhysicalFitness.instance.TakeEnergy(TakeEnergy);
             ComboManager.instance.InputManager();
             ComboManager.instance.inputReceived = false;
        }
