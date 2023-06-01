@@ -40,6 +40,7 @@ public class PlayerPhysicalFitness : MonoBehaviour
     void Die()
     {
         // Play Die Animation
+        
         // Disable Collision
         // Display Death Panel
     }
