@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        Player = Transform.FindAnyObjectByType<Transform>();
+        Player = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
