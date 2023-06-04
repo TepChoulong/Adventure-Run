@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         // Check distance from enemy to player
         DistanceToPlayer = Vector2.Distance(transform.position, Player.position);
@@ -51,6 +51,8 @@ public class EnemyController : MonoBehaviour
         // Method
         EnemyTracking();
         Enemy_Facing();
+
+        Debug.Log(CanSeePlayer(Enemy_Range));
     }
 
 /* ==================================================================================== */
