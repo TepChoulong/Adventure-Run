@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public static EnemyController instance;
+
     [Header("Boolean Variable")]
-    [SerializeField] bool FacingLeft; 
+    public bool FacingRight = true; 
     [SerializeField] bool IsArgo = false;
     [SerializeField] bool IsSearching = false;
     [Space]
@@ -17,9 +19,8 @@ public class EnemyController : MonoBehaviour
 
     [Header("Float Variable")]
     [SerializeField] float Enemy_Range; 
-    [SerializeField] float Enemy_Attack_Range;
     [SerializeField] float Enemy_Move_Speed;
-    [SerializeField] float DistanceToPlayer;
+    public static float DistanceToPlayer;
     [Space]
 
     [Header("LayerMask Variable")]
@@ -28,17 +29,19 @@ public class EnemyController : MonoBehaviour
 
     [Header("Component Variable")]
     [SerializeField] Rigidbody2D rb2d;
-    [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Animator animator;
 
 /* ==================================================================================== */
+
+    private void Awake() {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         Player = GameObject.Find("Player").transform;
     }
 
@@ -87,7 +90,6 @@ public class EnemyController : MonoBehaviour
         {
             // Enemy is on the right side, so move left
             rb2d.velocity = new Vector2(-Enemy_Move_Speed * Time.deltaTime, rb2d.velocity.y);
-            FacingLeft = true;
 
             // Walk Left Animation
             animator.SetBool("AllowWalk", true);
@@ -97,7 +99,6 @@ public class EnemyController : MonoBehaviour
         {
             // Enemy is on the left side, so move Right
             rb2d.velocity = new Vector2(Enemy_Move_Speed * Time.deltaTime, rb2d.velocity.y);
-            FacingLeft = false;
 
             // Walk Right Animation
             animator.SetBool("AllowWalk", true);
@@ -124,7 +125,7 @@ public class EnemyController : MonoBehaviour
         bool value = false;
         float castDistance = distance;
 
-        if (FacingLeft)
+        if (!FacingRight)
         {
             castDistance = distance * -1;
         }
@@ -159,17 +160,19 @@ public class EnemyController : MonoBehaviour
         if (transform.position.x > Player.position.x)
         {
             // Enemy is on the right side, so face left
-            spriteRenderer.flipX = true;
-            FacingLeft = true;
-            // Play Run Animation
+            Vector3 Scaler = transform.localScale;
+            Scaler.x = -0.7507975f;
+            transform.localScale = Scaler;
+            FacingRight = false;
         }
         
         if (transform.position.x < Player.position.x)
         {
             // Enemy is on the left side, so face Right
-            spriteRenderer.flipX = false;
-            FacingLeft = false;
-            // Play Run Animation
+            Vector3 Scaler = transform.localScale;
+            Scaler.x = 0.7507975f;
+            transform.localScale = Scaler;
+            FacingRight = true;
         }
     }
 }

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1628391540075088601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7346043607660462145}
+  m_Layer: 7
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7346043607660462145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628391540075088601}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8496101711031065335}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8496101710330148637
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,6 +77,7 @@ GameObject:
   - component: {fileID: 8496101711031065291}
   - component: {fileID: 8496101711031065333}
   - component: {fileID: 8496101711031065334}
+  - component: {fileID: 2075563232}
   m_Layer: 7
   m_Name: Hero_Knight_2
   m_TagString: Enemy
@@ -66,6 +98,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8496101710330148636}
+  - {fileID: 7346043607660462145}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -207,9 +240,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   CastPoint: {fileID: 8496101710330148636}
   Enemy_Range: 7.5
-  Enemy_Attack_Range: 2
   Enemy_Move_Speed: 80
-  DistanceToPlayer: 0
   WhatToDetect:
     serializedVersion: 2
     m_Bits: 256
@@ -229,3 +260,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 0
+--- !u!114 &2075563232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496101711031065292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b84d8b2222c274b9b41d11d9757e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack_Range: 1
+  FacingLeft: 0
+  AllowAttack2: 0
+  CastPoint: {fileID: 8496101710330148636}
+  EnemyAttackPoint: {fileID: 7346043607660462145}
+  WhatToDetect:
+    serializedVersion: 2
+    m_Bits: 256
+  spriteRenderer: {fileID: 0}
+  Player: {fileID: 0}

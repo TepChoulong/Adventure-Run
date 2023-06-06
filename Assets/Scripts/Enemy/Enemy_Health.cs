@@ -13,6 +13,7 @@ public class Enemy_Health : MonoBehaviour
     Animator animator;
     BoxCollider2D boxCollider2D;
     EnemyController enemyController;
+    Enemy_Attack_System enemy_Attack_System;
     Rigidbody2D rb2d;
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class Enemy_Health : MonoBehaviour
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         enemyController = GetComponent<EnemyController>();
+        enemy_Attack_System = GetComponent<Enemy_Attack_System>();
         rb2d = GetComponent<Rigidbody2D>();
 
         instance = this;
@@ -62,6 +64,9 @@ public class Enemy_Health : MonoBehaviour
 
         // Disable AI
         enemyController.enabled = false;
+
+        // Disable Enemy_Attack_System
+        enemy_Attack_System.enabled = false;
 
         // Set Gravity 0
         rb2d.gravityScale = 0;
