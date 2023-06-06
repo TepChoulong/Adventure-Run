@@ -634,12 +634,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!4 &1000953735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8722477398736935669, guid: d20b86273267f9245a0959745cb4c0b9, type: 3}
   m_PrefabInstance: {fileID: 1860386364}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1425813130
+=======
+--- !u!1 &1350498727
+>>>>>>> 2ab10a3a51f3c3211b47ffdf1e0bffc9371de97b
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -647,20 +651,31 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 1425813131}
   m_Layer: 7
   m_Name: AttackPoint
+=======
+  - component: {fileID: 1350498728}
+  m_Layer: 8
+  m_Name: GroundCheck
+>>>>>>> 2ab10a3a51f3c3211b47ffdf1e0bffc9371de97b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &1425813131
+=======
+--- !u!4 &1350498728
+>>>>>>> 2ab10a3a51f3c3211b47ffdf1e0bffc9371de97b
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1425813130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.79, y: 0.91, z: 0}
@@ -669,6 +684,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1953904074}
   m_RootOrder: 1
+=======
+  m_GameObject: {fileID: 1350498727}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.21, y: -1.03, z: 15.231446}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1697975094}
+  m_RootOrder: 0
+>>>>>>> 2ab10a3a51f3c3211b47ffdf1e0bffc9371de97b
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1482299409
 GameObject:
@@ -1335,6 +1360,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4220935726714563296, guid: efa7fc20b89737341913c194511abb6c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220935727511072988, guid: efa7fc20b89737341913c194511abb6c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4220935728404005442, guid: efa7fc20b89737341913c194511abb6c, type: 3}
       propertyPath: m_RootOrder
       value: 2

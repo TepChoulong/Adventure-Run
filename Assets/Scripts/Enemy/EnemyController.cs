@@ -46,10 +46,15 @@ public class EnemyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         // Check distance from enemy to player
         DistanceToPlayer = Vector2.Distance(transform.position, Player.position);
+
+        if (IsArgo)
+        {
+            Chase();
+        }
 
         // Method
         EnemyTracking();
@@ -76,10 +81,7 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (IsArgo)
-        {
-            Chase();
-        }
+        
     }
 
 /* ==================================================================================== */
@@ -145,11 +147,11 @@ public class EnemyController : MonoBehaviour
                 value = false;
             }
 
-            Debug.DrawLine(CastPoint.position, endpos, Color.cyan);
+            Debug.DrawLine(CastPoint.position, endpos, Color.red);
         }
         else
         {
-            Debug.DrawLine(CastPoint.position, endpos, Color.red);
+            Debug.DrawLine(CastPoint.position, endpos, Color.blue);
         }
 
         return value;
